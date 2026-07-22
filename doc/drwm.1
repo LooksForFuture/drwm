@@ -1,0 +1,79 @@
+.TH JrWM 1 "7 June 2026"
+.SH NAME
+JrWM \- a junior window manager
+.SH SYNOPSIS
+.B jrwm
+.SH DESCRIPTION
+JrWM is a dynamic tiling window manager for the
+.IR river (1)
+Wayland compositor.
+It is designed to be small, low-dependency, easy to build, read and modify, and
+to have a good degree of correctness.
+.P
+Windows in JrWM are organized into spaces, which are collections of windows
+associated with an output and a layout.
+Multiple spaces may be associated with an output simultaneously, but only one
+space is visible on an output at any one time.
+Supported layouts are a tiled layout like that of
+.IR dwm (1)
+and a monocle layout.
+.P
+JrWM supports very little in the way of visuals.
+Window borders are drawn to indicate focus state, but for anything else,
+additional programs such as
+.IR waybar (1)
+must be used.
+For the sake of these programs, JrWM supports the river-layer-shell-v1 protocol.
+.SH INVOCATION
+JrWM must be run with an already-running river compositor.
+This is typically done by invoking
+.B jrwm
+as the final command in one's .config/river/init file.
+However, JrWM can also be run with an already-running compositor session by
+invoking
+.B jrwm
+with the
+.B WAYLAND_DISPLAY
+environment variable set to the appropriate value.
+.SH OPTIONS
+JrWM has no command-line options.
+.SH USAGE
+These are the default internal key bindings within JrWM.
+Mod4 is often referred to as the "super" or "windows" key.
+.TP
+.B Mod4-q
+Close the focused window.
+.TP
+.B Mod4-Shift-e
+Exit the current river session.
+.TP
+.B Mod4-j
+Focus the next window in the current space.
+.TP
+.B Mod4-k
+Focus the next window in the current space.
+.TP
+.B Mod4-Shift-j
+Move the window "forward" in the current space.
+.TP
+.B Mod4-Shift-k
+Move the window "backward" in the current space.
+.TP
+.B Mod4-m
+Toggle the current space's layout between monocle and tiled.
+.TP
+.B Mod4-(1 ... 9)
+Select the
+.IR n th
+space to view on the current output.
+.TP
+.B Mod4-Shift-(1 ... 9)
+Send the currently focused window to the
+.IR n th
+space.
+.SH CUSTOMIZATION
+JrWM has no dynamic customization mechanism and changes to the behavior
+described in this document must be made by editing the file
+.BR config.c .
+.SH BUGS
+Bugs may be reported on the GitHub repository: https://github.com/jpco/jrwm.
