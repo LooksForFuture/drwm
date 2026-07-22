@@ -50,7 +50,7 @@ To install, run the following as root
 make install
 ```
 
-JrWM will be installed into the /usr/local/bin directory, and its man page will
+DrWM will be installed into the /usr/local/bin directory, and its man page will
 be installed into /usr/local/man.
 
 The Makefile, like DrWM itself, is intended to be simple and easy to modify.
